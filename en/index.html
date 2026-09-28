@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>SOSIDE: automation and AI in Bukavu, DR Congo</title>
+<meta content="SOSIDE automates your reports, inventory and billing and adds AI without complexity. Custom software for SMEs, NGOs, schools and clinics in Bukavu, DR Congo." name="description"/>
+<meta content="#88E24B" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Unbounded:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F8EE;--panel:#E8F0D8;--ink:#000;--muted:#3A4230;--lime:#88E24B;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1108;--panel:#141B0D;--ink:#EEF6E3;--muted:#B5C1A6}}
+:root[data-theme="dark"]{--bg:#0C1108;--panel:#141B0D;--ink:#EEF6E3;--muted:#B5C1A6}
+html{background:var(--bg);scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,system-ui,sans-serif;line-height:1.12;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(1.9rem,7vw,3.5rem);font-weight:700}
+h2{font-size:clamp(1.45rem,4.4vw,2.2rem);font-weight:700;margin-bottom:12px}
+h3{font-size:1.05rem;font-weight:700}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.hero :focus-visible,.cta :focus-visible{outline-color:#000}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:3px solid var(--ink)}
+header .w{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.15rem Unbounded,system-ui,sans-serif}
+.brand img{width:38px;height:38px;border:2px solid var(--ink);border-radius:9px;display:block}
+.tag{display:none;font:400 .8rem Figtree,system-ui,sans-serif;color:var(--muted)}
+nav{display:flex;align-items:center;gap:12px}
+nav a.l{display:none;text-decoration:none;font-weight:600}
+nav a.l:hover{text-decoration:underline}
+.btn{display:inline-block;padding:13px 22px;border:3px solid var(--ink);border-radius:14px;font-weight:700;text-decoration:none;color:var(--ink);background:transparent;line-height:1.2}
+.btn.p{background:var(--ink);color:var(--bg)}
+nav .btn{padding:9px 16px}
+.hero .btn,.cta .btn{color:#000;border-color:#000}
+.hero .btn.p,.cta .btn.p{background:#000;color:var(--lime)}
+.hero{background:var(--lime);color:#000;border-bottom:3px solid #000;padding:44px 0 52px}
+.hg{display:grid;gap:36px;align-items:center}
+.hero p{max-width:56ch;margin:20px 0 0;font-size:1.15rem}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.mark{width:min(68vw,300px);aspect-ratio:1;border:3px solid #000;border-radius:28px;overflow:hidden;justify-self:start}
+.mark img{width:100%;height:100%;display:block}
+section{padding:60px 0}
+section.alt{background:var(--panel);border-block:3px solid var(--ink)}
+.lead{max-width:60ch;margin:0 0 28px;color:var(--muted)}
+.row{display:grid;gap:6px 28px;padding:22px 0;border-top:3px solid var(--ink)}
+.row p{margin:0;max-width:62ch}
+.price{font-weight:700;white-space:nowrap}
+.src{display:block;font-size:.85rem;color:var(--muted);margin-top:4px}
+.note{margin:18px 0 0;font-size:.95rem;color:var(--muted)}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:18px 0;border-top:3px solid var(--ink)}
+ol.steps li::before{content:counter(s);grid-row:span 2;font:700 1.6rem Unbounded,system-ui,sans-serif}
+ol.steps p{margin:0}
+.guard{margin-top:40px;padding:24px;border:3px solid var(--ink);border-radius:20px}
+.guard p{margin:10px 0 0;max-width:64ch}
+details{border-top:3px solid var(--ink);padding:16px 0}
+details:last-of-type{border-bottom:3px solid var(--ink)}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;max-width:64ch;color:var(--muted)}
+.cta{background:var(--lime);color:#000;border-block:3px solid #000}
+.cta p{max-width:52ch;margin:0 0 24px;font-size:1.1rem}
+.ct{margin:28px 0 0;font-weight:600}
+.ct span{display:block}
+footer{padding:28px 0;font-size:.92rem;color:var(--muted)}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+@media(min-width:700px){.tag{display:block}}
+@media(min-width:900px){nav{gap:22px}
+nav a.l{display:inline}
+.hg{grid-template-columns:1.6fr 1fr}
+.mark{justify-self:end}
+.row{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) auto;align-items:start}
+.row.two{grid-template-columns:minmax(0,1fr) minmax(0,2.7fr)}
+}
+.lg{display:flex;border:3px solid var(--ink);border-radius:10px;overflow:hidden}
+.lg a{text-decoration:none;display:block;font:700 .85rem Figtree,system-ui,sans-serif;padding:6px 11px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.lg a[aria-current]{background:var(--ink);color:var(--bg)}
+@media(max-width:480px){nav .btn{display:none}}
+.stats{background:#000;color:#F5F8EE;border-bottom:3px solid #000}
+.stats .w{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.stat{padding:26px 0}
+.stat b{display:block;font:700 clamp(2rem,9vw,3rem)/1 Unbounded,system-ui,sans-serif;color:var(--lime)}
+.stat span{display:block;margin-top:8px;font-size:.95rem;opacity:.9}
+.dx{display:grid;gap:16px;max-width:560px}
+.dx label{display:grid;gap:6px;font-weight:600}
+.dx select,.dx input{font:inherit;font-weight:400;padding:12px 14px;min-height:48px;border:3px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink)}
+.dx .btn{justify-self:start}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;padding:13px 20px;background:#000;color:var(--lime);border:3px solid var(--lime);border-radius:999px;font-weight:700;text-decoration:none}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+.mark{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px)}}
+@media(min-width:900px){.stats .w{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){footer{padding-bottom:96px}}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.mark{animation:none}}
+</style>
+<link rel="canonical" href="https://sosside.vercel.app/en/"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="alternate" hreflang="fr" href="https://sosside.vercel.app/"><link rel="alternate" hreflang="en" href="https://sosside.vercel.app/en/"><link rel="alternate" hreflang="x-default" href="https://sosside.vercel.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="SOSIDE"><meta property="og:locale" content="en_US"><meta property="og:title" content="SOSIDE: automation and AI in Bukavu, DR Congo"><meta property="og:description" content="SOSIDE automates your reports, inventory and billing and adds AI without complexity. Custom software for SMEs, NGOs, schools and clinics in Bukavu, DR Congo."><meta property="og:url" content="https://sosside.vercel.app/en/"><meta property="og:image" content="https://sosside.vercel.app/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/icon.png"><link rel="apple-touch-icon" href="/logo.png"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://sosside.vercel.app/#org", "name": "SOSIDE", "alternateName": "Solution Side with AI", "url": "https://sosside.vercel.app/", "logo": "https://sosside.vercel.app/logo.png", "image": "https://sosside.vercel.app/og.png", "email": "felicienmukamba.cd@gmail.com", "telephone": "+243995209133", "address": {"@type": "PostalAddress", "addressLocality": "Bukavu", "addressRegion": "Sud-Kivu", "addressCountry": "CD"}, "areaServed": ["Bukavu", "Sud-Kivu", "République démocratique du Congo"], "founder": {"@type": "Person", "name": "Félicien Mukamba", "url": "https://felicienmukamba.vercel.app", "sameAs": ["https://www.linkedin.com/in/felicien-mukamba-5b49ab252/", "https://github.com/felicienmukamba"]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does the diagnostic include?", "acceptedAnswer": {"@type": "Answer", "text": "A map of the current process, the repetitive tasks found, an estimate of the gains, three automations ranked by impact and a 30-day plan. The quote is optional."}}, {"@type": "Question", "name": "How long does an automation take?", "acceptedAnswer": {"@type": "Answer", "text": "The scope is closed and the timeline short. For example, a weekly report automated in under 7 days."}}, {"@type": "Question", "name": "Do you work outside Bukavu?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We are based in Bukavu and work remotely with organizations in DR Congo and the French-speaking world."}}, {"@type": "Question", "name": "What happens to my software after delivery?", "acceptedAnswer": {"@type": "Answer", "text": "You can take a subscription: backups, monitoring, support, hosting and small improvements, with a response time defined in writing."}}]}]}</script></head>
+<body>
+<header>
+<div class="w">
+<a aria-label="SOSIDE, home" class="brand" href="#top"><img alt="SOSIDE logo: an S made of interlocking black lines on a green background" height="96" src="/icon.png" width="96"/><span>SOSIDE</span><span class="tag">Solution Side with AI</span></a>
+<nav aria-label="Main navigation">
+<a class="l" href="#offres">Offers</a><a class="l" href="#references">References</a><a class="l" href="#methode">Method</a><a class="l" href="#faq">FAQ</a>
+<div aria-label="Langue / Language" class="lg" role="group"><a href="/" hreflang="fr" lang="fr">FR</a><a aria-current="page" href="/en/" hreflang="en" lang="en">EN</a></div><a class="btn p" href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main id="top">
+<div class="hero">
+<div class="w hg">
+<div>
+<h1>Automate your operations. Add AI without unnecessary complexity.</h1>
+<p>SOSIDE builds software, automations and AI assistants for businesses, NGOs, schools and health organizations. Based in Bukavu, we work across DR Congo and remotely.</p>
+<p>Solution Side with AI: we stand on the side of the solution, not technology for its own sake.</p>
+<div class="acts">
+<a class="btn p" href="https://wa.me/243995209133?text=Hello%20SOSIDE%2C%20I%20would%20like%20a%20digital%20and%20AI%20diagnostic." rel="noopener" target="_blank">Request a diagnostic</a>
+<a class="btn" href="#offres">See our offers</a>
+</div>
+</div>
+<div class="mark"><img alt="SOSIDE symbol: an S made of interlocking black lines" fetchpriority="high" height="512" src="/logo.png" width="512"/></div>
+</div>
+</div>
+<div class="stats"><div class="w"><div class="stat"><b data-k="+" data-n="10000">10 000+</b><span>users on the citizen portal (PGCC)</span></div><div class="stat"><b data-n="8">8</b><span>schools digitized (GEVAPOM)</span></div><div class="stat"><b data-k="%" data-n="60">60 %</b><span>less administrative time in those schools</span></div><div class="stat"><b data-k="%" data-n="40">40 %</b><span>shorter time-to-market on B2B platforms</span></div></div></div><section>
+<div class="w">
+<h2>What we fix</h2>
+<p class="lead">Clients buy a result: less manual work, better visibility, better decisions.</p>
+<div class="row two rv"><h3>Automate</h3><p>Reports rebuilt every week, data retyped from one file to another, forgotten follow-ups. We turn them into workflows that run on their own.</p></div>
+<div class="row two rv"><h3>Integrate</h3><p>Your tools, your documents and AI connected in one system: document search, data extraction, assisted replies.</p></div>
+<div class="row two rv"><h3>Transform</h3><p>For organizations ready to go further: choosing use cases, governance, training and measuring results.</p></div>
+</div>
+</section>
+<section class="alt" id="offres">
+<div class="w">
+<h2>Five offers, from first diagnostic to full program</h2>
+<p class="lead">Start small: the diagnostic shows you where you lose time before any wider commitment.</p>
+<div class="row rv"><h3>Digital &amp; AI Diagnostic</h3><p>In 60 to 120 minutes, we map a process, estimate the time lost and rank three automations by impact. You receive a 3–7 page report and a 30-day plan.</p><span class="price">From $100</span></div>
+<div class="row rv"><h3>Express automation</h3><p>A closed scope, a short timeline, a clear acceptance criterion. Example: your weekly report automated in under 7 days.</p><span class="price">From $500</span></div>
+<div class="row rv"><h3>Business systems</h3><p>Custom web applications: HR, inventory, sales, projects, finance, appointments, document management.</p><span class="price">From $2,000</span></div>
+<div class="row rv"><h3>Maintenance subscription</h3><p>After delivery: backups, monitoring, support, hosting and small improvements, with a written service level.</p><span class="price">From $50/month</span></div>
+<div class="row rv"><h3>AI transformation</h3><p>Audit, use cases, governance, training, integration and measurement of results. Human review and confidentiality included.</p><span class="price">Quote on request</span></div>
+<p class="note">Indicative prices, confirmed by a quote after the diagnostic.</p>
+</div>
+</section>
+<section id="references">
+<div class="w">
+<h2>Critical systems already in production</h2>
+<p class="lead">Work led by our founder, Félicien Mukamba: 3 B2B platforms delivered with 100% adoption among launch clients, and time-to-market cut by 40%.</p>
+<div class="row rv"><h3>PGCC, Congolese citizen portal</h3><p>Digital identity and secure public services: AES-256-GCM encryption, responses under 200 ms, more than 10,000 users.</p><a href="https://www.youtube.com/watch?v=zPOI5yNTQFs" rel="noopener" target="_blank">Watch the demo</a></div>
+<div class="row rv"><h3>HMS Elite, hospital system<span class="src">Aumsoft Technology</span></h3><p>One patient record, from admission to billing, interoperable via HL7 / FHIR.</p><a href="https://hms.aumsoft.net/" rel="noopener" target="_blank">Visit the site</a></div>
+<div class="row rv"><h3>UMS, university management<span class="src">Aumsoft Technology</span></h3><p>More than 5 institutions on one platform, 100% data isolation, more than 50 modules.</p><a href="https://umsaap.com" rel="noopener" target="_blank">Visit the site</a></div>
+<div class="row rv"><h3>Maago, marketplace and offline point of sale<span class="src">Aumsoft Technology</span></h3><p>A point of sale that keeps selling without a network, in USD, CDF and EUR, with M-Pesa, Orange Money and Airtel Money.</p><a href="https://maago.aumsoft.net/marketplace-bientot" rel="noopener" target="_blank">Visit the site</a></div>
+<div class="row rv"><h3>GEVAPOM, 8 schools digitized</h3><p>100% of administrative processes digitized, 60% less administrative time, more than 50 teachers trained.</p><span></span></div>
+</div>
+</section>
+<section class="alt" id="methode">
+<div class="w">
+<h2>How we work</h2>
+<ol class="steps">
+<li class="rv"><h3>Diagnostic</h3><p>We map the process and quantify the time lost.</p></li>
+<li class="rv"><h3>Proposal</h3><p>Three automations ranked by impact, a 30-day plan, a quote.</p></li>
+<li class="rv"><h3>Delivery</h3><p>Closed scope, acceptance testing with you, go-live. Anything outside the scope is quoted separately.</p></li>
+<li class="rv"><h3>Support</h3><p>Maintenance, support and improvements under a written service level.</p></li>
+</ol>
+<div class="guard rv">
+<h3>AI with guardrails</h3>
+<p>Each assistant has a defined scope. We provide human review where needed, access control, logging and data protection. Sensitive data goes through a legal and technical analysis before any integration.</p>
+</div>
+</div>
+</section>
+<section id="faq">
+<div class="w">
+<h2>Frequently asked questions</h2>
+<details class="rv"><summary>What does the diagnostic include?</summary><p>A map of the current process, the repetitive tasks found, an estimate of the gains, three automations ranked by impact and a 30-day plan. The quote is optional.</p></details>
+<details class="rv"><summary>How long does an automation take?</summary><p>The scope is closed and the timeline short. For example, a weekly report automated in under 7 days.</p></details>
+<details class="rv"><summary>Do you work outside Bukavu?</summary><p>Yes. We are based in Bukavu and work remotely with organizations in DR Congo and the French-speaking world.</p></details>
+<details class="rv"><summary>What happens to my software after delivery?</summary><p>You can take a subscription: backups, monitoring, support, hosting and small improvements, with a response time defined in writing.</p></details>
+</div>
+</section>
+<section class="alt rv" id="diagnostic"><div class="w"><h2>Your express diagnostic</h2><p class="lead">Answer three questions. They reach us on WhatsApp and we reply with a first analysis.</p><div class="dx"><label><span>Your sector</span><select id="dx-s"><option>SME or business</option><option>NGO or funded project</option><option>School</option><option>Clinic or health center</option><option>Other</option></select></label><label><span>Which process is slow or manual?</span><input autocomplete="off" id="dx-p" maxlength="120" type="text"/></label><label><span>Hours lost per week (estimate)</span><select id="dx-h"><option>1–5</option><option>5–10</option><option>10–20</option><option>More than 20</option></select></label><a class="btn p" href="https://wa.me/243995209133?text=Hello%20SOSIDE%2C%20I%20would%20like%20a%20digital%20and%20AI%20diagnostic." id="dx-go" rel="noopener" target="_blank">Send on WhatsApp</a></div></div></section><section class="cta" id="contact">
+<div class="w">
+<h2>Let’s talk about the first process to automate.</h2>
+<p>Tell us what takes up the most of your time. We reply with a diagnostic proposal.</p>
+<div class="acts">
+<a class="btn p" href="https://wa.me/243995209133?text=Hello%20SOSIDE%2C%20I%20would%20like%20a%20digital%20and%20AI%20diagnostic." rel="noopener" target="_blank">Write on WhatsApp</a>
+<a class="btn" href="mailto:felicienmukamba.cd@gmail.com?subject=Digital%20%26%20AI%20Diagnostic">Send an email</a>
+</div>
+<p class="ct"><span>felicienmukamba.cd@gmail.com</span><span>+243 995 209 133</span><span>Bukavu, South Kivu, Democratic Republic of the Congo</span></p>
+</div>
+</section>
+</main>
+<footer>
+<div class="w">
+<span>© 2026 SOSIDE, Solution Side with AI. Bukavu, DR Congo.</span>
+<span><a href="https://felicienmukamba.vercel.app" rel="noopener" target="_blank">The founder</a> · <a href="https://www.linkedin.com/in/felicien-mukamba-5b49ab252/" rel="noopener" target="_blank">LinkedIn</a> · <a href="https://github.com/felicienmukamba" rel="noopener" target="_blank">GitHub</a></span>
+</div>
+</footer>
+
+<a aria-label="WhatsApp" class="wa" href="https://wa.me/243995209133?text=Hello%20SOSIDE%2C%20I%20would%20like%20a%20digital%20and%20AI%20diagnostic." rel="noopener" target="_blank">WhatsApp</a><script id="app">
+(function(){
+var d=document,h=d.documentElement;h.classList.add('js');
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function L(){return h.lang==='en'?'en':'fr'}
+var st=[].slice.call(d.querySelectorAll('.stat b'));
+function show(v){st.forEach(function(b){var k=b.getAttribute('data-k')||'',l=L();b.textContent=Math.round(b.getAttribute('data-n')*v).toLocaleString(l==='en'?'en-US':'fr-FR')+(k==='%'?(l==='en'?'%':'\u00a0%'):k)})}
+show(1);
+function run(){if(rm)return;var t0=performance.now();(function f(){var p=Math.min((performance.now()-t0)/1200,1);show(1-Math.pow(1-p,3));if(p<1)requestAnimationFrame(f)})()}
+var io=window.IntersectionObserver?new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;x.target.classList.add('in');if(x.target.classList.contains('stats'))run();io.unobserve(x.target)})},{threshold:.15}):null;
+[].slice.call(d.querySelectorAll('.rv,.stats')).forEach(function(e){if(io)io.observe(e);else e.classList.add('in')});
+var a=d.getElementById('dx-go');
+function upd(){var s=d.getElementById('dx-s').selectedOptions[0].textContent,p=d.getElementById('dx-p').value.trim(),q=d.getElementById('dx-h').value;
+var m=L()==='en'?'Hello SOSIDE, I would like an express diagnostic.\nSector: '+s+'\nSlow process: '+(p||'-')+'\nHours lost per week: '+q:'Bonjour SOSIDE, je souhaite un diagnostic express.\nSecteur : '+s+'\nProcessus lent : '+(p||'-')+'\nHeures perdues par semaine : '+q;
+a.href='https://wa.me/243995209133?text='+encodeURIComponent(m)}
+['dx-s','dx-p','dx-h'].forEach(function(i){var e=d.getElementById(i);e.addEventListener('input',upd);e.addEventListener('change',upd)});
+d.querySelectorAll('.lg button').forEach(function(b){b.addEventListener('click',function(){upd();show(1)})});
+upd();
+})();
+</script>
+</body>
+</html>

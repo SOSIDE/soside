@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sosside.vercel.app/sitemap.xml
