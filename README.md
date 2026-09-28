@@ -42,13 +42,28 @@ sosside/
 
 ## Déploiement
 
-Ce site est conçu pour être déployé sur Vercel ou tout autre hébergement de sites statiques.
+Ce site est configuré pour être déployé sur Vercel ou tout autre hébergement de sites statiques.
 
 ### Déploiement sur Vercel
 
+#### Option 1: Via l'interface web (recommandé)
+1. Allez sur [vercel.com](https://vercel.com)
+2. Connectez-vous avec votre compte GitHub
+3. Cliquez sur "Add New Project"
+4. Sélectionnez le dépôt `SOSIDE/soside`
+5. Cliquez sur "Deploy"
+
+#### Option 2: Via Vercel CLI
 1. Installer Vercel CLI: `npm i -g vercel`
 2. Se connecter: `vercel login`
 3. Déployer: `vercel`
+
+### Configuration Vercel
+
+Le fichier `vercel.json` est déjà configuré avec:
+- Build statique optimisé
+- Headers de sécurité (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection)
+- Routing correct pour toutes les pages
 
 ## Contact
 
