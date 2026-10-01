@@ -1,83 +1,90 @@
-# SOSIDE
+# SOSIDE — site Next.js
 
-Solution Side with AI - Automatisation et IA à Bukavu, RDC
+Portage du site vitrine SOSIDE en Next.js 16 (App Router) + TypeScript.
+Deux langues (FR à `/`, EN à `/en`) et quatre pages sectorielles
+(`/pme`, `/ong`, `/ecoles`, `/cliniques`), en français uniquement pour l'instant.
 
-## Description
+## Installer et lancer en local
 
-SOSIDE conçoit des logiciels, des automatisations et des assistants IA pour les entreprises, ONG, écoles et structures de santé. Basés à Bukavu, nous travaillons partout en RDC et à distance.
+Prérequis : Node.js 20.9 ou plus récent.
 
-## Structure du projet
-
-```
-sosside/
-├── cliniques/          # Page pour cliniques et centres de santé
-│   └── index.html
-├── ecoles/             # Page pour écoles
-│   └── index.html
-├── en/                 # Version anglaise du site
-│   └── index.html
-├── ong/                # Page pour ONG et projets financés
-│   └── index.html
-├── pme/                # Page pour PME et commerces
-│   └── index.html
-├── videos/             # Vidéos promotionnelles par secteur
-│   ├── cliniques.jpg, cliniques.mp4
-│   ├── ecoles.jpg, ecoles.mp4
-│   ├── ong.jpg, ong.mp4
-│   └── pme.jpg, pme.mp4
-├── icon.png            # Icône du site
-├── logo.png            # Logo SOSIDE
-├── og.png              # Image pour partage social
-├── index.html          # Page d'accueil
-├── robots.txt          # Instructions pour les robots d'indexation
-└── sitemap.xml         # Plan du site pour SEO
+```bash
+npm install
+npm run dev
 ```
 
-## Technologies
+Ouvrez http://localhost:3000. `npm run build && npm run start` lance la
+version de production en local.
 
-- HTML5
-- CSS3 (avec support dark mode)
-- JavaScript minimal pour animations
-- Hébergement: Vercel
+## Déployer
 
-## Déploiement
+Le plus simple est Vercel (créateur de Next.js, déjà utilisé pour le site du
+fondateur) : poussez ce dossier sur un dépôt GitHub, importez-le sur
+vercel.com, puis attachez votre nom de domaine.
 
-Ce site est configuré pour être déployé sur Vercel ou tout autre hébergement de sites statiques.
+## À faire avant la mise en ligne
 
-### Déploiement sur Vercel
+1. **Nom de domaine réel.** `lib/site.ts` contient `SITE_URL =
+   "https://sosside.vercel.app"`, une hypothèse posée pendant la conversation
+   qui a servi à générer ce site, jamais confirmée. Changez cette seule
+   constante pour votre vrai domaine : elle alimente les URLs canoniques, le
+   plan du site (`app/sitemap.ts`) et les données structurées
+   (`lib/schema.ts`).
+2. **SOSIDO vs SOSIDE.** Les statuts SAS déposés utilisent « SOSIDO », le logo
+   et ce site utilisent « SOSIDE ». À harmoniser avant tout dépôt RCCM.
+3. **Références clients.** HMS Elite, UMS et Maago (section Références de la
+   page d'accueil) sont des réalisations menées chez Aumsoft Technology, pas
+   des projets SOSIDE : vérifiez que vous pouvez les présenter ainsi.
+4. **Prix.** Les tarifs affichés sont indicatifs (venant du rapport
+   stratégique), à confirmer.
 
-#### Option 1: Via l'interface web (recommandé)
-1. Allez sur [vercel.com](https://vercel.com)
-2. Connectez-vous avec votre compte GitHub
-3. Cliquez sur "Add New Project"
-4. Sélectionnez le dépôt `SOSIDE/soside`
-5. Cliquez sur "Deploy"
+## Où modifier le contenu
 
-#### Option 2: Via Vercel CLI
-1. Installer Vercel CLI: `npm i -g vercel`
-2. Se connecter: `vercel login`
-3. Déployer: `vercel`
+- `lib/content.ts` — tous les textes FR/EN de la page d'accueil (accroche,
+  offres, références, méthode, FAQ, formulaire de diagnostic).
+- `lib/sectors.ts` — les 4 pages sectorielles.
+- `lib/site.ts` — domaine, téléphone, email.
+- `app/globals.css` — couleurs, typographie, espacements (variables CSS en
+  haut de fichier).
+- `public/` — logo, icône, image de partage (`og.png`) et vidéos.
 
-### Configuration Vercel
+## Structure
 
-Le fichier `vercel.json` est déjà configuré avec:
-- Build statique optimisé
-- Headers de sécurité (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection)
-- Routing correct pour toutes les pages
+```
+app/
+  (fr)/            groupe de routes FR — a son propre <html lang="fr">
+    layout.tsx
+    page.tsx       → /
+    pme/page.tsx   → /pme
+    ong/, ecoles/, cliniques/
+  (en)/            groupe de routes EN — a son propre <html lang="en">
+    layout.tsx
+    en/page.tsx    → /en
+  sitemap.ts, robots.ts, globals.css
+components/        Header, Footer, HomePage, SectorPage, Stats, DiagnosticForm…
+lib/               contenu, constantes, données structurées (JSON-LD)
+public/            logo, icône, og.png, vidéos
+```
 
-## Contact
+Les dossiers entre parenthèses, `(fr)` et `(en)`, sont des « route groups » :
+ils organisent le code sans apparaître dans l'URL. On les utilise ici parce
+que Next.js n'autorise qu'un seul `<html>` par arbre de mise en page ; deux
+groupes racines permettent d'avoir `lang="fr"` et `lang="en"` correctement
+posés selon la page, sans bascule côté client. Le contenu partagé (police,
+schéma d'organisation) est factorisé dans `lib/fonts.ts` et `lib/schema.ts`
+pour éviter la duplication.
 
-- Email: felicienmukamba.cd@gmail.com
-- Téléphone: +243 995 209 133
-- Localisation: Bukavu, Sud-Kivu, République démocratique du Congo
+## Notes techniques
 
-## Auteur
-
-Félicien Mukamba
-- LinkedIn: https://www.linkedin.com/in/felicien-mukamba-5b49ab252/
-- GitHub: https://github.com/felicienmukamba
-- Site personnel: https://felicienmukamba.vercel.app
-
-## Licence
-
-© 2026 SOSIDE, Solution Side with AI. Tous droits réservés.
+- Pas de Tailwind : une seule feuille `app/globals.css`, avec variables CSS
+  pour les couleurs (thème sombre automatique via `prefers-color-scheme`).
+- Les sections qui apparaissent au défilement (`components/Reveal.tsx`)
+  utilisent `IntersectionObserver` et respectent `prefers-reduced-motion` ;
+  elles restent visibles sans JavaScript (dégradation progressive via la
+  classe `.js` posée par un petit script dans `<body>`).
+- Pas de configuration ESLint incluse : `next lint` a été retiré dans
+  Next.js 16 au profit d'ESLint en configuration « flat » autonome. Ajoutez
+  la vôtre si vous en avez besoin (`npm install -D eslint
+  eslint-config-next` puis un `eslint.config.mjs`).
+- Images et vidéos sont servies depuis `public/` (pas de CDN externe) ; elles
+  pèsent environ 1,3 Mo au total, ce qui reste léger pour de la vidéo.
